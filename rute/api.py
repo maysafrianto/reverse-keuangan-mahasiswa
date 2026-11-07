@@ -15,7 +15,7 @@ def api(aksi):
         return jsonify([t for t in data["transaksi"] if t["tanggal"][:7] == bulan])
         
     elif aksi == "transaksi" and request.method == "POST":
-        b = request.get_json(silent=True) or {}
+        b = request.get_json(silent=True) or {}  
         try:
             datetime.date.fromisoformat(b.get("tanggal", ""))
         except ValueError:
